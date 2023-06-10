@@ -1,0 +1,191 @@
+\documentclass[]{report}
+
+\usepackage{amsthm}
+\usepackage{biblatex}
+\usepackage{csquotes}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{float}
+
+\textwidth=450pt\oddsidemargin=0pt
+\geometry{a4paper, top=3cm, bottom=3cm, left=3cm, right=3cm, % heightrounded, bindingoffset=5mm 
+}
+\theoremstyle{definition}
+\newtheorem{Def}{Definizione}
+
+\theoremstyle{Theorem}
+\newtheorem{Theo}[Def]{Teorema}
+\newtheorem{Prop}[Def]{Proposizione}
+
+\newtheorem{Lm}[Def]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{Ex}[Def]{Esempio}
+
+\theoremstyle{definition}
+\newtheorem{Lem}[Def]{Lemma:}
+
+\theoremstyle{definition}
+\newtheorem{Obs}[Def]{Osservazione:}
+
+
+%opening
+\title{Equazioni di campo di Einstein e tensore energia momento}
+\author{Gabriele Novelli}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+
+\end{abstract}
+
+\section{Tensore energia momento}
+\subsection{Definizione}
+L'introduzione del tensore energia momento è dovuta alla necessità di poter esprimere in modo sintetico il flusso di energia attraverso una determinata superficie.
+Per una generica particella, le grandezze energia $E$ e momento $p$ sono contenute dentro al quadri-impulso, indicato con $p^\mu=mu^\mu=m\gamma(c,u_x,u_y,u_z)$. Una volta noto questo vettore, per estrarne l'energia è necessaria una 1-forma che selezioni la componente 0. Allo stesso modo, per definire una densità di flusso attraverso una superficie a t costante, è necessaria una 1-forma. Si definisce allora il tensore energia momento come il tensore \textbf{T} le cui componenti
+$$T(\tilde{dx^\alpha},\tilde{dx^\beta})=T^{\alpha\beta}$$
+rappresentano il flusso di momento $p^\alpha$ attraverso la superficie ad $x^\beta$ costante.\\
+Analizziamo con più attenzione le componenti:\\
+\\
+$T^{00}$ è il flusso di $p^0$, ovvero dell'energia, attraverso le superfici ad $x^0=t$ costante. Quindi, per definizione, $T^{00}$ è la densità di energia.
+Allo stesso modo, $T^{0i}$ è il flusso di energia attraverso le superfici a $x^i$ costante.
+$T^{i0}$ è il flusso della componente $p^i$ del momento attraverso le superfici a $t$ costante, mentre $T^{ij}$ è il flusso della i-esima componente del momento $p^i$ attraverso le superfici a $x^i$ costante.
+\\
+Cerchiamo ora di dare una definizione più esplicita delle componenti in un sistema di riferimento (SDR) in co-movimento con la particella, indicato con $S$.\\
+\\
+Se volgiamo calcolare le componenti di \textbf{T} per la polvere, nel SDR scelto non c'è movimento delle particelle, ovvero tutte le componenti del momento sono nulle ed i flussi sono nulli. Quindi l'unica componente non nulla del tensore energia momento è $T^{00}$. Allora, se $n$ è il numero di particelle per unità di volume, si ha $T^{00}=mn\gamma=\rho$ (in questo caso $\rho$ è la densità di energia e abbiamo posto $c=1$). \\
+Cioè è lecito scrivere
+$$\textbf{T}=mn\vec{U}\otimes\vec{U}=\rho\vec{U}\otimes\vec{U}$$
+Da questa analisi possiamo concludere che, spostando il sistema di riferimento in un nuovo $SDR$ indicato con $S'$, si possono calcolare le componenti del tensore \textbf{T} nel seguente modo:
+$$T^{\alpha\beta}=\textbf{T}(\tilde{dx^\alpha},\tilde{dx^\beta})=\rho U^\alpha U^\beta$$
+Dato che in questo generico sistema di riferimento le componenti del quadrivettore $U^\mu$ sono date da $U^\mu=({1\over\sqrt{1-v^2}},{u_x\over\sqrt{1-v^2}},{u_y\over\sqrt{1-v^2}},{u_z\over\sqrt{1-v^2}})$, ne segue che la generica componente del tensore $\textbf{T}$ ha l'espressione:
+$$T^{ij}={\rho v^iv^j\over \sqrt{1-v^2}}$$
+
+\begin{Obs}
+	Notiamo dall'ultima relazione che il tensore energia momento $\textbf{T}$ è, per la polvere, simmetrico. In realtà la simmetria è un proprietà intrinseca di questo tensore ed è vera in generale. Ricordiamo inoltre un importantissimo risultato noto dall'algebra lineare: una qualsiasi matrice simmetrica può essere sempre messa in forma diagonale. In altre parole, se $\textbf{T}$ è simmetrico allora esiste sempre un sistema di riferimento in cui esso assume la forma diagonale.
+\end{Obs}
+\subsection{Simmetria e conservazione dell'energia}
+In questa sezione proveremo che il tensore energia momento è simmetrico e lo utilizzeremo per ricavare la legge di conservazione dell'energia. Supporremo di analizzare un generico fluido e utilizzeremo come sistema di riferimento quello co-movente con l'elemento di fluido infinitesimo analizzato.\\ \\
+Proviamo ora che il tensore energia momento è effettivamente un tensore simmetrico e che quindi può essere diagonalizzato.
+\begin{Theo}
+	Il tensore $\textbf{T}$ è simmetrico.
+\end{Theo}
+\begin{proof}
+	Ci basta dimostrare la simmetria di $\textbf{T}$ in un solo sistema di riferimento. Mettiamoci dunque nel SDR co-movente con l'elemento di fluido, indicato con S. Proviamo innanzitutto che la parte di tensore individuata dalle coordinate $i,j>0$ è simmetrica.
+		\begin{figure} [H]
+			\centering
+			\label{Image 1}
+			\includegraphics{TSimmetric.JPG}
+	\caption{Elemento di fluido nel SDR comovente.}	
+	\end{figure}
+	Si consideri un elemento di fluido cubico di lato $l$ come in figura \ref{Image 1}. Allora la forza che questo esercita sulla faccia j-esima dell'elemento di fluido adiacente è data da $F^i_j=T^{ij}l^2$ con $i$ che varia da $1$ a 3. Una forza è applicata anche sulla faccia opposta. Indichiamo questa seconda forza con $-F^i_j$ in quanto, se portiamo $l$ a 0, le superfici vanno a coincidere.\\
+	Lo stesso ragionamento si può applicare anche alle altre facce. \\
+	Calcoliamo ora i momenti torcenti generati da queste forza rispetto all'asse z (ovviamente, non consideriamo i contributi in direzione z). Per questo calcolo, spostiamo il centro del SDR nel centro del cubo di fluido. Inoltre operiamo una piccola approssimazione: consideriamo le forze come agenti sul centro delle facce considerate. Indichiamo poi con $r$ la distanza tra l'asse $z$ e il punto di applicazione della forza.\\
+	Il momento torcente dovuto a $\vec{F_1}$ è $(\vec{r}\times\vec{F_1})^z=xF_x^y$. Il contributo della forza sulla faccia opposta è lo stesso, per simmetria.
+	Se sostituiamo $x=l/2$ e $F^i_j=T^{ij}l^2$ otteniamo:
+	$(\vec{r}\times\vec{F_1})^z={l^3\over 2}T^{yx}$. Possiamo applicare lo stesso ragionamento alle altre due facce, ottenendo come risultato $(\vec{r}\times\vec{F_2})=-{l^3\over 2}T^{xy}$. Quindi il momento torcente totale è dato da $$\tau^z=l^3(T^{xy}-T^{yx})$$
+	Osserviamo poi che il momento d'inerzia dell'elemento cubico di volume rispetto al suo asse z è proporzionale a $I\propto ml^2=\rho l^5$. Ma allora l'accelerazione angolare ha la forma $$\ddot{\theta}={\tau\over I}={T^{xy}-T^{yx}\over \rho l^2}$$
+	Per $l\rightarrow 0$ questa quantità tende ad infinito a meno che $T^{xy}=T^{yx}$. Dato che sperimentalmente non osserviamo il fluido in movimenti vorticosi, sarà necessario che $T^{xy}=T^{yx}$. Questo termina la prima parte della dimostrazione.\\
+	\\
+	Per dimostrare la simmetria delle rimanenti componenti del tensore invece è richiesto meno sforzo. Ricordiamo che $T^{0i}$ è il flusso di energia attraverso una determinata superficie ad $x^i$ costante. Dato che l'energia corrisponde alla massa, in realtà $T^{0i}$ è la densità di massa moltiplicata per la velocità a cui si sta muovendo, ovvero la densità di momento. Quindi $T^{0i}=T^{i0}$.
+	Questo termina la dimostrazione.
+\end{proof}
+
+La costruzione del tensore $\textbf{T}$ presuppone che esista un modo per ricavare, a partire da esso, la legge di conservazione dell'energia. Ciò è effettivamente possibile e la relazione che si trova è:
+\begin{Theo} \label{Teo 2}
+	$${\partial \over \partial x^i}T^{0i}=0$$	
+\end{Theo}
+\begin{Obs}
+Prima di partire con la dimostrazione è giusto sottolineare che, per il principio di covarianza generale, le leggi della relatività generale si ottengono a partire da quelle della relatività speciale sostituendo le quantità tensoriali del gruppo di Lorentz con quelle della varietà spazio tempo. In questa ottica ${\partial \over \partial x^i}$ è rimpiazzato da $\nabla_i$ derivazione covariante. Quindi il teorema \ref{Teo 2} in realtà andrebbe riscritto come:
+$$\nabla_\mu T^{\nu\mu}=0$$
+\end{Obs}
+\begin{proof}
+	Si consideri un elemento infinitesimo di fluido cubico di lato $l$.
+	\begin{figure} [H]
+		\centering
+		\label{Image 2}
+		\includegraphics{TCons.JPG}
+		\caption{Sezione dell'elemento di fluido nel SDR comovente, a z costante.}	
+	\end{figure}
+Si faccia riferimento alla figura \ref{Image 2}. Il flusso di energia attraverso la faccia 4 è dato da $l^2T^{0x}(x=0)$ ed attraverso la faccia 2 da $-l^2T^{0x}(x=l)$. Similmente, per le facce 1 si avrà $l^2T^{0y}(y=0)$ e 3 $-l^2T^{0y}(y=l)$.\\
+Per conservazione dell'energia, la somma di questi contributi dovrà equivalere l'effettivo cambiamento di energia interno al volume, ovvero:
+$${\partial \over \partial t}(T^{00}l^3)=l^2[T^{0x}(x=0)-T^{0x}(x=l)+T^{0y}(y=0)-T^{0y}(y=l)+T^{0z}(z=0)-T^{0z}(z=l)]$$
+Dividiamo ora per $l^3$ ed operiamo il limite per $l\rightarrow 0$, ottenendo:
+$${\partial \over \partial t}(T^{00})=-{\partial \over \partial x}(T^{0x})-{\partial \over \partial y}(T^{0y})-{\partial \over \partial z}(T^{0z})$$
+Questo completa la dimostrazione.
+\end{proof}
+\subsection{Fluidi perfetti}
+In questa sezione analizziamo il tensore energia momento in un fluido perfetto.\\
+\\
+In relatività generale si dice fluido perfetto un fluido che, nel SDR di riferimento co-movente con l'elemento analizzato, non presenta viscosità nè conduzione di calore.
+\begin{Obs}
+	In un fluido perfetto non c'è conduzione di calore. Questo implica che $T^{0i=T^{i0}=0}$. L'energia può fluire solamente se fluisce la materia.\\
+	La viscosità di un fluido è il risultato delle forze di interazione parallele alle superfici tra elementi di fluido adiacenti. L'assenza di viscosità implica l'assenza di queste forze che quindi dovranno risultare necessariamente tutte perpendicolari alle superfici in questione. Da ciò, $T^{ij}=0$ a meno che $i=j$.\\
+	Inoltre, l'assenza di viscosità deve valere in tutti i sistemi di riferimento co-moventi con gli elementi di fluido. Quindi è necessario che $\textbf{T}$ (escludendo la parte energetica) sia diagonale in tutti questi sistemi. L'unica matrice che soddisfa questa richiesta è l'identità, a meno di una costante. E' allora lecito supporre che $\textbf{T}$ abbia, in un fluido perfetto, la forma:
+	$$\textbf{T}=\begin{pmatrix}
+		\rho & 0 & 0 &0\\
+		0 & p & 0 &0\\
+		0 & 0 & p &0\\
+		0 & 0 & 0 &p\\
+	\end{pmatrix}$$	
+\end{Obs}
+\begin{Obs}
+	Non è difficile mostrare che il tensore energia momento si può riscrivere anche nel seguente modo:
+	$$T^{ij}=(p+\rho)U^iU^j+p\eta^{ij}$$
+	dove con $\eta^{ij}$ si è indicata la metrica di Minkowski e con $U^i$ la quadri-velocità dell'elemento di fluido considerato. Applicando nuovamente il principio di covarianza generale, otteniamo
+	$$T^{ij}=(p+\rho)U^iU^j+pg^{ij}$$
+	dove alla metrica di Minkowski si è sostituito un generico tensore metrico $g^{ij}$.
+\end{Obs}
+\section{Equazioni di campo di Einstein}
+In questa sezione ricaviamo le equazioni di campo di Einstein e ne studiamo il comportamento in approssimazione di campo debole. Per la buona riuscita di questa trattazione è anche necessario determinare una corretta approssimazione per la metrica nel caso di campo Newtoniano.
+\subsection{Metrica in approssimazione di campo debole}
+In questa sotto-sezione analizziamo la metrica in approssimazione di campo Newtoniano e cerchiamo di ricavare un'espressione che in seguito ci permetta di ricavare le equazioni di Einstein.\\
+\\
+Consideriamo dunque una particella in moto in un camo debole con velocità non relativistica. Dato che questa non è soggetta ad alcuna forza, eccetto che pe rla gravità, essa si muoverà lungo una geodesica. L'equazione che ne descrive il moto è:
+$${d^2x^\alpha\over d\tau^2}+\Gamma^\alpha_{ij}{dx^i\over d\tau}{dx^j\over d\tau}=0$$ 
+Se la particella è abbastanza lenta, consideriamo solo le componenti temporali:
+$${d^2x^\alpha\over d\tau^2}+\Gamma^\alpha_{00}({dt\over d\tau})^2=0$$
+E' inoltre noto che i somboli di CHristoffel hanno la forma
+$$\Gamma_{ij}^\alpha=$$
+\subsection{Derivazione delle equazioni di Einstein}
+...
+Ricordiamo che in un qualsiasi punto $p$ della varietà spazio-tempo possiamo sempre esprimere la metrica in forma diagonale e canonica:
+$$g^{ij}=\eta^{ij}$$
+Inoltre è noto che in un intorno $U$ abbastanza piccolo di $p$, la metrica differirà da $\eta^{ij}$ solamente per termini quadratici in $\delta x$. Assumiamo che in $U$ il campo sia debole. L'approccio sarà quello di cercare di scirvere le equazioni di campo in approssimazione di campo debole, per poi ri-scriverle eliminando questa ipotesi.\\
+\\
+Assumendo dunque l'ipotesi di campo debole, ricordiamo che la componente $g_{00}$ della metrica, immersa in un campo debole prodotto da una densità di massa non relativistica $\rho$, è data da $g_{00}=-1-2\phi$; dove $\phi$ è determinato dall'equazione $$\nabla^2\phi=4\pi G\rho$$
+Ricordiamo poi che $T_{00}=\rho$. Combinando questi risultati otteniamo:
+\begin{equation}\label{Equation 1}
+	\nabla^2g_{00}=-8\pi GT_{00}
+\end{equation}
+
+La struttura di questa equazione rende lecito ipotizzare che l'equazione di campo di Einstein abbia la forma 
+$$G_{ij}=-8\pi GT_{ij}$$
+dove $G_{ij}$ si suppone essere una combinazione lineare della metrica e delle sue derivate prime e seconde.
+
+\begin{Obs}
+	Dall'equazione \ref{Equation 1} è possibile fare alcune deduzioni. Prima di tutto, data la simmetria del tensore $\textbf{T}$, anche $G_{ij}$ sarà necessariamente simmetrico. Inoltre, l'unità di misura di $G_{ij}$ deve essere la stessa della derivata seconda del tensore metrico. Quindi ogni termine di grado $N$ dovrà essere moltiplicato per una lunghezza elevata alla $N-2$. Ciò rende i termini di grado successivo al secondo saranno trascurabili per ... FINIRE
+	Per rimuovere questa ambiguità, si suppone che il tensore $G_{ij}$ contenga solamente termini alle derivate seconde della metrica. Ovviamente l'espressione di $G_{ij}$ che si calcolerà dovrà essere tale da ridursi all'equazione \ref{Equation 1} nel limite di campo debole.\\
+	Infine, data la conservazione del tensore energia momento, espressa dalla legge 
+	$$\nabla_\mu T^{\mu\nu}=0$$
+	dovrà valere anche 
+	$$\nabla_\mu G^{\mu\nu}=0$$
+\end{Obs}
+Le osservazioni fatte sono sufficienti per trovare un'espressione di $G_{ij}$.\\
+\\
+E' possibile dimostrare che il tensore $R_{ijkl}$ di Riemann è l'unico tensore che si può ottenere utilizzando il tensore metrico e le sue derivate prime e seconde. Data la proprietà di antisimmetria di questo tensore, contraendolo possiamo andare a formare solamente i tensori di Ricci $R_{ij}=R^k_{ikj}$ e di curvatura $R=R^\mu_\mu$. Riprendendo le osservazioni precedenti, possiamo scrivere $G_{ij}$ nella forma generale
+$$G_{ij}=C_1g_{ij}R+C_2R_{ij}$$
+dove $C_1$ e $C_2$ sono costanti arbitrarie da determinare.
+Osserviamo che $G_{ij}$ così definito è automaticamente simmetrico.\\
+\\
+Il prossimo passaggio è applicare la condizione $$\nabla_\mu G^{\mu\nu}=0$$
+Dall'identità di Bianchi è noto che
+$$\nabla_i({1\over 2}g_{ij}R-R^{ij})=0$$
+Questo suggerisce di porre $C1=-C2/2$, ottenendo:
+$$G_{ij}=C_2(R_{ij}-{1\over 2}g_{ij}R)$$
+Rimane ora il problema della determinazione della costante $C_2$.
+\end{document}
