@@ -115,16 +115,16 @@ Si faccia riferimento alla figura \ref{Image 2}. Il flusso di energia attraverso
 Per conservazione dell'energia, la somma di questi contributi dovrà equivalere l'effettivo cambiamento di energia interno al volume, ovvero:
 $${\partial \over \partial t}(T^{00}l^3)=l^2[T^{0x}(x=0)-T^{0x}(x=l)+T^{0y}(y=0)-T^{0y}(y=l)+T^{0z}(z=0)-T^{0z}(z=l)]$$
 Dividiamo ora per $l^3$ ed operiamo il limite per $l\rightarrow 0$, ottenendo:
-$${\partial \over \partial t}(T^{00})=-{\partial \over \partial x}(T^{0x})-{\partial \over \partial y}(T^{0y})-{\partial \over \partial z}(T^{0z})$$
+$${\partial \over \partial t}T^{00}=-{\partial \over \partial x}T^{0x}-{\partial \over \partial y}T^{0y}-{\partial \over \partial z}T^{0z}$$
 Questo completa la dimostrazione.
 \end{proof}
 \subsection{Fluidi perfetti}
 In questa sezione analizziamo il tensore energia momento in un fluido perfetto.\\
 \\
-In relatività generale si dice fluido perfetto un fluido che, nel SDR di riferimento co-movente con l'elemento analizzato, non presenta viscosità nè conduzione di calore.
+In relatività generale si dice fluido perfetto un fluido che, nel SDR di riferimento co-movente con l'elemento analizzato, non presenta nè viscosità nè conduzione di calore.
 \begin{Obs}
-	In un fluido perfetto non c'è conduzione di calore. Questo implica che $T^{0i=T^{i0}=0}$. L'energia può fluire solamente se fluisce la materia.\\
-	La viscosità di un fluido è il risultato delle forze di interazione parallele alle superfici tra elementi di fluido adiacenti. L'assenza di viscosità implica l'assenza di queste forze che quindi dovranno risultare necessariamente tutte perpendicolari alle superfici in questione. Da ciò, $T^{ij}=0$ a meno che $i=j$.\\
+	In un fluido perfetto non c'è conduzione di calore. Questo implica che $T^{0i}=T^{i0}=0$. L'energia può fluire solamente se fluisce la materia.\\
+	La viscosità di un fluido è il risultato delle forze di interazione parallele alle superfici tra elementi di fluido adiacenti. L'assenza di viscosità implica l'assenza di queste forze che quindi dovranno risultare necessariamente tutte perpendicolari alle superfici in questione. Da ciò, $T^{ij}=0$ a meno che $i=j$.
 	Inoltre, l'assenza di viscosità deve valere in tutti i sistemi di riferimento co-moventi con gli elementi di fluido. Quindi è necessario che $\textbf{T}$ (escludendo la parte energetica) sia diagonale in tutti questi sistemi. L'unica matrice che soddisfa questa richiesta è l'identità, a meno di una costante. E' allora lecito supporre che $\textbf{T}$ abbia, in un fluido perfetto, la forma:
 	$$\textbf{T}=\begin{pmatrix}
 		\rho & 0 & 0 &0\\
@@ -145,14 +145,31 @@ In questa sezione ricaviamo le equazioni di campo di Einstein e ne studiamo il c
 \subsection{Metrica in approssimazione di campo debole}
 In questa sotto-sezione analizziamo la metrica in approssimazione di campo Newtoniano e cerchiamo di ricavare un'espressione che in seguito ci permetta di ricavare le equazioni di Einstein.\\
 \\
-Consideriamo dunque una particella in moto in un camo debole con velocità non relativistica. Dato che questa non è soggetta ad alcuna forza, eccetto che pe rla gravità, essa si muoverà lungo una geodesica. L'equazione che ne descrive il moto è:
+Consideriamo dunque una particella in moto in un camo debole con velocità non relativistica. Dato che questa non è soggetta ad alcuna forza, eccetto che per la gravità, essa si muoverà lungo una geodesica. L'equazione che ne descrive il moto è:
 $${d^2x^\alpha\over d\tau^2}+\Gamma^\alpha_{ij}{dx^i\over d\tau}{dx^j\over d\tau}=0$$ 
 Se la particella è abbastanza lenta, consideriamo solo le componenti temporali:
-$${d^2x^\alpha\over d\tau^2}+\Gamma^\alpha_{00}({dt\over d\tau})^2=0$$
-E' inoltre noto che i somboli di CHristoffel hanno la forma
-$$\Gamma_{ij}^\alpha=$$
+$${d^2x^\alpha\over d\tau^2}+\Gamma^\alpha_{00}\bigg{(}{dt\over d\tau}\bigg{)}^2=0$$
+E' inoltre noto che i somboli di Christoffel hanno la forma
+$$\Gamma_{ij}^\alpha={1\over 2}g^{\alpha\beta}\bigg{(}{\partial g_{i\beta}\over \partial x^j}+{\partial g_{j\beta}\over \partial x^i}-{\partial g_{ij}\over \partial x^\beta}\bigg{)}$$
+Dato ch il campo è statico, tutte le derivate temporali di $g_{ij}$ svaniscono, da cui:
+$$\Gamma^\alpha_{00}=-{1\over 2}g^{\alpha\beta}{\partial g_{00}\over \partial x^\beta}$$
+Inoltre, dato che il campo è debole, è lecito supporre che la metrica $g_{ij}$ sia vicina a quella di Minkowsi. Questo ci porta a scrivere
+$$g_{ij}=\eta_{ij}+h_{ij}$$
+Con la condizione che $|h_{ij}|<<1$. Data la piccolezza del termine aggiuntivo $h_{ij}$, siamo sicuri che la metrica sia non troppo distante da quella Minkowskiana. Inseriamo questa ultima deduzione all'interno dell'espressione per $\Gamma$ e troviamo:
+$$\Gamma^\alpha_{00}=-{1\over 2}\eta^{\alpha\beta}{\partial h_{00}\over \partial x^\beta}$$
+Riprendiamo poi l'equazione della geodesica e sostituiamoci dentro questo ultimo risultato:
+$${d^2x^\alpha\over d\tau^2}={1\over 2}\bigg{(}{dt\over d\tau}\bigg{)}^2\nabla h_{00}$$
+Supponendo $dt\over d\tau$ costante e dividendo per questo termine al quadrato, abbiamo:
+$${d^2x^\alpha\over dt^2}={1\over 2}\nabla h_{00}$$
+Possiamo quindi identificare la quantità ${1\over 2}h_{00}$ come un potenziale. Il corrispondente risultato newtoniano è:
+$$\nabla\phi=-{d^2x^\alpha\over dt^2}$$
+dove $\phi=-{GM\over r}$
+il che ci suggerisce di porre $h_{00}=-2\phi+c$ dove $c$ è una costante da determinare. Tuttavia dobbiamo imporre che il sistema di coordinate diventi Minkowskiano al'infinità spaziale, ovvero: $h_{00}\rightarrow 0$. A ciò si aggiunge che anche $\phi$ svanisce a grandi distanze. Da ciò: $c=0$ e quindi: $h_{00}=-2\phi$.\\
+\\
+In conclusione, nel caso di un campo debole la metrica ha la forma:
+$$g_{00}=-1-2\phi$$
 \subsection{Derivazione delle equazioni di Einstein}
-...
+In questa sezione si enuncerà una pseudo-dimostrazione delle equazioni di campo di Einstein, a partire dai risultati trovati nei capitoli precedenti e da alcuni altri assunti noti.
 Ricordiamo che in un qualsiasi punto $p$ della varietà spazio-tempo possiamo sempre esprimere la metrica in forma diagonale e canonica:
 $$g^{ij}=\eta^{ij}$$
 Inoltre è noto che in un intorno $U$ abbastanza piccolo di $p$, la metrica differirà da $\eta^{ij}$ solamente per termini quadratici in $\delta x$. Assumiamo che in $U$ il campo sia debole. L'approccio sarà quello di cercare di scirvere le equazioni di campo in approssimazione di campo debole, per poi ri-scriverle eliminando questa ipotesi.\\
@@ -160,11 +177,11 @@ Inoltre è noto che in un intorno $U$ abbastanza piccolo di $p$, la metrica diff
 Assumendo dunque l'ipotesi di campo debole, ricordiamo che la componente $g_{00}$ della metrica, immersa in un campo debole prodotto da una densità di massa non relativistica $\rho$, è data da $g_{00}=-1-2\phi$; dove $\phi$ è determinato dall'equazione $$\nabla^2\phi=4\pi G\rho$$
 Ricordiamo poi che $T_{00}=\rho$. Combinando questi risultati otteniamo:
 \begin{equation}\label{Equation 1}
-	\nabla^2g_{00}=-8\pi GT_{00}
+	\nabla^2g_{00}=8\pi GT_{00}
 \end{equation}
 
 La struttura di questa equazione rende lecito ipotizzare che l'equazione di campo di Einstein abbia la forma 
-$$G_{ij}=-8\pi GT_{ij}$$
+$$G_{ij}=8\pi GT_{ij}$$
 dove $G_{ij}$ si suppone essere una combinazione lineare della metrica e delle sue derivate prime e seconde.
 
 \begin{Obs}
@@ -184,8 +201,41 @@ Osserviamo che $G_{ij}$ così definito è automaticamente simmetrico.\\
 \\
 Il prossimo passaggio è applicare la condizione $$\nabla_\mu G^{\mu\nu}=0$$
 Dall'identità di Bianchi è noto che
-$$\nabla_i({1\over 2}g_{ij}R-R^{ij})=0$$
+$$\nabla_i({1\over 2}g^{ij}R-R^{ij})=0$$
 Questo suggerisce di porre $C1=-C2/2$, ottenendo:
-$$G_{ij}=C_2(R_{ij}-{1\over 2}g_{ij}R)$$
-Rimane ora il problema della determinazione della costante $C_2$.
+\begin{equation}
+	\label{Equation 2}
+	G_{ij}=C_2(R_{ij}-{1\over 2}g_{ij}R)
+\end{equation}
+Rimane ora il problema della determinazione della costante $C_2$. Per risolvere questo ultimo passaggio, sfruttiamo la condizione per cui, nel limite di campo debole, si deve ritrovare l'equazione \ref{Equation 1}.\\
+\\
+Supponendo un campo debole, la metrica sarà $g_{ij}\simeq \eta_{ij}$, ovvero differirà di poco da quella di Minkowski. Allora l'espressione della traccia del tensore $R_{ij}$ sarà:
+$$R=R_{kk}-R_{00}$$
+Inoltre, dal fatto che un sistema relativistico ha sempre $|T_{ij}|<<|T_{00}|$, dovrà anche valere $|G_{ij}|<<|G_{00}|$ che, riprendendo l'espressione \ref{Equation 2} si traduce in
+$$R_{ij}\simeq{1\over 2}g_{ij}R$$
+Allora la traccia del tensore $R_{ij}$ sarà data da:
+$$R=R_{kk}-R_{00}={3\over 2}R-R_{00}$$
+Espressione che si traduce in $2R_{00}=R$. Sostituendo questa relazione dentro all'equazione \ref{Equation 2} troviamo:
+\begin{equation}
+	\label{Equation 3}
+	G_{00}=2C_2R_{00}
+\end{equation} 
+Per calcolare questo contributo possiamo utilizzare parte dell'espressione generale di $R_{ijkl}$, considerando solo la parte lineare nelle derivate seconde della metrica. In particolare:
+$$R_{ijkl}\simeq{1\over 2}\bigg{[}{\partial^2 g_{ik} \over\partial x^j\partial x^l}-{\partial^2 g_{jk}\over\partial x^i\partial x^l}-{\partial^2 g_{il} \over\partial x^j\partial x^k}+{\partial^2 g_{jl}\over\partial x^i\partial x^k}\bigg{]}$$
+Dato che il campo è statico, tutte le derivate temporali sono nulle e le componenti che ci servono sono solamente
+\begin{align*}
+	R_{0000}&\simeq 0 & R_{i0j0}&\simeq {1\over 2} {\partial^2 g_{00} \over\partial x^j\partial x^i}  
+\end{align*}
+Da queste determiniamo l'espressione ricercata per $R_{00}$, che ci riconduce proprio all'espressione dell'equazione \ref{Equation 1}.
+$$R_{00}=R_{i0j0}-R_{0000}\simeq {1\over 2} {\partial^2 g_{00} \over\partial x^j\partial x^i}\simeq {1\over 2} \nabla^2 g_{00}$$
+Combinando questo ultimo risultato con quello trovato nell'equazione \ref{Equation 3} si ottiene finalmente:
+$$G_{00}=C_2\nabla^2g_{00}$$
+Confrontando infine questa formula con l'equazione \ref{Equation 1}, è evidente che la soluzione si ha per $C_2=1$. In conclusione, le equazioni di campo di Einstein sono date da:
+$$G_{ij}=R_{ij}-{1\over 2}g_{ij}R=8\pi GT_{ij}$$
+\begin{Obs}
+	Possiamo contrarre il tensore di Einstein con $g^{ij}$ per ottenere una quantità scalare proporzionale alla curvatura scalare (la traccia del tensore di Ricci):
+	$$g^{ij}(R_{ij}-{1\over 2}g_{ij}R)=g^{ij}(8\pi GT_{ij})$$
+	$$R-2R=-R=8\pi GT$$
+	Se poi ci troviamo nel vuoto, $\textbf{T}$ svanisce e quindi ci ritroviamo con l'equazione $R_{ij}=0$.
+\end{Obs}
 \end{document}
