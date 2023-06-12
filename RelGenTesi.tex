@@ -60,6 +60,7 @@ Cerchiamo ora di dare una definizione più esplicita delle componenti in un sist
 Se volgiamo calcolare le componenti di \textbf{T} per la polvere, nel SDR scelto non c'è movimento delle particelle, ovvero tutte le componenti del momento sono nulle ed i flussi sono nulli. Quindi l'unica componente non nulla del tensore energia momento è $T^{00}$. Allora, se $n$ è il numero di particelle per unità di volume, si ha $T^{00}=mn\gamma=\rho$ (in questo caso $\rho$ è la densità di energia e abbiamo posto $c=1$). \\
 Cioè è lecito scrivere
 $$\textbf{T}=mn\vec{U}\otimes\vec{U}=\rho\vec{U}\otimes\vec{U}$$
+Dove $U^\mu$ è la quadri-velocità del fluido.
 Da questa analisi possiamo concludere che, spostando il sistema di riferimento in un nuovo $SDR$ indicato con $S'$, si possono calcolare le componenti del tensore \textbf{T} nel seguente modo:
 $$T^{\alpha\beta}=\textbf{T}(\tilde{dx^\alpha},\tilde{dx^\beta})=\rho U^\alpha U^\beta$$
 Dato che in questo generico sistema di riferimento le componenti del quadrivettore $U^\mu$ sono date da $U^\mu=({1\over\sqrt{1-v^2}},{u_x\over\sqrt{1-v^2}},{u_y\over\sqrt{1-v^2}},{u_z\over\sqrt{1-v^2}})$, ne segue che la generica componente del tensore $\textbf{T}$ ha l'espressione:
@@ -102,6 +103,7 @@ La costruzione del tensore $\textbf{T}$ presuppone che esista un modo per ricava
 \begin{Obs}
 Prima di partire con la dimostrazione è giusto sottolineare che, per il principio di covarianza generale, le leggi della relatività generale si ottengono a partire da quelle della relatività speciale sostituendo le quantità tensoriali del gruppo di Lorentz con quelle della varietà spazio tempo. In questa ottica ${\partial \over \partial x^i}$ è rimpiazzato da $\nabla_i$ derivazione covariante. Quindi il teorema \ref{Teo 2} in realtà andrebbe riscritto come:
 $$\nabla_\mu T^{\nu\mu}=0$$
+Notiamo che questa riscrittura sostanzialmente comporta l'inserimento di un nuovo termine dipendente dai simboli di Christoffel.
 \end{Obs}
 \begin{proof}
 	Si consideri un elemento infinitesimo di fluido cubico di lato $l$.
@@ -138,7 +140,7 @@ In relatività generale si dice fluido perfetto un fluido che, nel SDR di riferi
 	$$T^{ij}=(p+\rho)U^iU^j+p\eta^{ij}$$
 	dove con $\eta^{ij}$ si è indicata la metrica di Minkowski e con $U^i$ la quadri-velocità dell'elemento di fluido considerato. Applicando nuovamente il principio di covarianza generale, otteniamo
 	$$T^{ij}=(p+\rho)U^iU^j+pg^{ij}$$
-	dove alla metrica di Minkowski si è sostituito un generico tensore metrico $g^{ij}$.
+	dove alla metrica di Minkowski si è sostituito un generico tensore metrico $g^{ij}$ e $U^\mu$ è la quadri-velocità dell'elemento di fludio calcolata nel SDR co-movente con esso.
 \end{Obs}
 \section{Equazioni di campo di Einstein}
 In questa sezione ricaviamo le equazioni di campo di Einstein e ne studiamo il comportamento in approssimazione di campo debole. Per la buona riuscita di questa trattazione è anche necessario determinare una corretta approssimazione per la metrica nel caso di campo Newtoniano.
@@ -151,9 +153,9 @@ Se la particella è abbastanza lenta, consideriamo solo le componenti temporali:
 $${d^2x^\alpha\over d\tau^2}+\Gamma^\alpha_{00}\bigg{(}{dt\over d\tau}\bigg{)}^2=0$$
 E' inoltre noto che i somboli di Christoffel hanno la forma
 $$\Gamma_{ij}^\alpha={1\over 2}g^{\alpha\beta}\bigg{(}{\partial g_{i\beta}\over \partial x^j}+{\partial g_{j\beta}\over \partial x^i}-{\partial g_{ij}\over \partial x^\beta}\bigg{)}$$
-Dato ch il campo è statico, tutte le derivate temporali di $g_{ij}$ svaniscono, da cui:
+Dato che il campo è statico, tutte le derivate temporali di $g_{ij}$ svaniscono, da cui:
 $$\Gamma^\alpha_{00}=-{1\over 2}g^{\alpha\beta}{\partial g_{00}\over \partial x^\beta}$$
-Inoltre, dato che il campo è debole, è lecito supporre che la metrica $g_{ij}$ sia vicina a quella di Minkowsi. Questo ci porta a scrivere
+Inoltre, poiché il campo è debole, è lecito supporre che la metrica $g_{ij}$ sia vicina a quella di Minkowsi. Questo ci porta a scrivere
 $$g_{ij}=\eta_{ij}+h_{ij}$$
 Con la condizione che $|h_{ij}|<<1$. Data la piccolezza del termine aggiuntivo $h_{ij}$, siamo sicuri che la metrica sia non troppo distante da quella Minkowskiana. Inseriamo questa ultima deduzione all'interno dell'espressione per $\Gamma$ e troviamo:
 $$\Gamma^\alpha_{00}=-{1\over 2}\eta^{\alpha\beta}{\partial h_{00}\over \partial x^\beta}$$
@@ -172,7 +174,7 @@ $$g_{00}=-1-2\phi$$
 In questa sezione si enuncerà una pseudo-dimostrazione delle equazioni di campo di Einstein, a partire dai risultati trovati nei capitoli precedenti e da alcuni altri assunti noti.
 Ricordiamo che in un qualsiasi punto $p$ della varietà spazio-tempo possiamo sempre esprimere la metrica in forma diagonale e canonica:
 $$g^{ij}=\eta^{ij}$$
-Inoltre è noto che in un intorno $U$ abbastanza piccolo di $p$, la metrica differirà da $\eta^{ij}$ solamente per termini quadratici in $\delta x$. Assumiamo che in $U$ il campo sia debole. L'approccio sarà quello di cercare di scirvere le equazioni di campo in approssimazione di campo debole, per poi ri-scriverle eliminando questa ipotesi.\\
+Inoltre è noto che in un intorno $U$ abbastanza piccolo di $p$, la metrica differirà da $\eta^{ij}$ solamente per termini quadratici in $\delta x$. Assumiamo che in $U$ il campo sia debole. L'approccio sarà quello di cercare di scrivere le equazioni di campo in approssimazione di campo debole, per poi ri-scriverle eliminando questa ipotesi.\\
 \\
 Assumendo dunque l'ipotesi di campo debole, ricordiamo che la componente $g_{00}$ della metrica, immersa in un campo debole prodotto da una densità di massa non relativistica $\rho$, è data da $g_{00}=-1-2\phi$; dove $\phi$ è determinato dall'equazione $$\nabla^2\phi=4\pi G\rho$$
 Ricordiamo poi che $T_{00}=\rho$. Combinando questi risultati otteniamo:
@@ -186,7 +188,7 @@ dove $G_{ij}$ si suppone essere una combinazione lineare della metrica e delle s
 
 \begin{Obs}
 	Dall'equazione \ref{Equation 1} è possibile fare alcune deduzioni. Prima di tutto, data la simmetria del tensore $\textbf{T}$, anche $G_{ij}$ sarà necessariamente simmetrico. Inoltre, l'unità di misura di $G_{ij}$ deve essere la stessa della derivata seconda del tensore metrico. Quindi ogni termine di grado $N$ dovrà essere moltiplicato per una lunghezza elevata alla $N-2$. Ciò rende i termini di grado successivo al secondo saranno trascurabili per ... FINIRE
-	Per rimuovere questa ambiguità, si suppone che il tensore $G_{ij}$ contenga solamente termini alle derivate seconde della metrica. Ovviamente l'espressione di $G_{ij}$ che si calcolerà dovrà essere tale da ridursi all'equazione \ref{Equation 1} nel limite di campo debole.\\
+	Per rimuovere questa ambiguità, si suppone che il tensore $G_{ij}$ contenga solamente termini alle derivate seconde della metrica. Ovviamente l'espressione di $G_{ij}$ che si calcolerà dovrà essere tale da ridursi all'equazione \ref{Equation 1} nel limite di campo debole.
 	Infine, data la conservazione del tensore energia momento, espressa dalla legge 
 	$$\nabla_\mu T^{\mu\nu}=0$$
 	dovrà valere anche 
@@ -238,4 +240,13 @@ $$G_{ij}=R_{ij}-{1\over 2}g_{ij}R=8\pi GT_{ij}$$
 	$$R-2R=-R=8\pi GT$$
 	Se poi ci troviamo nel vuoto, $\textbf{T}$ svanisce e quindi ci ritroviamo con l'equazione $R_{ij}=0$.
 \end{Obs}
+\subsection{Il limite Newtoniano}
+In questa sezione cerchiamo ora un'espressione per il tensore di Einstein nel limite Newtoniano di campo debole.\\
+\\
+Come fatto in precedenza, assumiamo che la metrica non sia distante da quella di Minkowski, ovvero che valga l'ipotesi:
+$$g_{ij}=\eta_{ij}+h_{ij}$$
+dove $\eta_{ij}$ è la metrica di Minkowski e $h_{ij}$ è una correzione tale che $|h_{ij}|<<1$. Prima di procedere con la linearizzazione del tensore di Einstein, è opportuno classificare un'importante classe di trasformazioni.\\
+\\
+Consideriamo un cambio di coordinate infinitesimo $x^{i'}=x^i+\xi^i(x^j)$ dove $\xi^i$ è una funzione della posizione, molto piccola: $|\xi^i|<<1$. Supponiamo anche che le derivate prime di $\xi^i$ siano molto piccole: $|{\partial\xi^i\over \partial x^m}|<<1$. E' possibile dimostrare che per una trasformazione di questo tipo vale:
+$$h$$ 
 \end{document}
