@@ -147,7 +147,7 @@ In questa sezione ricaviamo le equazioni di campo di Einstein e ne studiamo il c
 \subsection{Metrica in approssimazione di campo debole}
 In questa sotto-sezione analizziamo la metrica in approssimazione di campo Newtoniano e cerchiamo di ricavare un'espressione che in seguito ci permetta di ricavare le equazioni di Einstein.\\
 \\
-Consideriamo dunque una particella in moto in un camo debole con velocità non relativistica. Dato che questa non è soggetta ad alcuna forza, eccetto che per la gravità, essa si muoverà lungo una geodesica. L'equazione che ne descrive il moto è:
+Consideriamo dunque una particella in moto in un campo debole con velocità non relativistica. Dato che questa non è soggetta ad alcuna forza, eccetto che per la gravità, essa si muoverà lungo una geodesica. L'equazione che ne descrive il moto è:
 $${d^2x^\alpha\over d\tau^2}+\Gamma^\alpha_{ij}{dx^i\over d\tau}{dx^j\over d\tau}=0$$ 
 Se la particella è abbastanza lenta, consideriamo solo le componenti temporali:
 $${d^2x^\alpha\over d\tau^2}+\Gamma^\alpha_{00}\bigg{(}{dt\over d\tau}\bigg{)}^2=0$$
@@ -241,12 +241,33 @@ $$G_{ij}=R_{ij}-{1\over 2}g_{ij}R=8\pi GT_{ij}$$
 	Se poi ci troviamo nel vuoto, $\textbf{T}$ svanisce e quindi ci ritroviamo con l'equazione $R_{ij}=0$.
 \end{Obs}
 \subsection{Il limite Newtoniano}
-In questa sezione cerchiamo ora un'espressione per il tensore di Einstein nel limite Newtoniano di campo debole.\\
+In questa sezione cerchiamo ora un'espressione per il tensore di Einstein nel limite Newtoniano di campo debole. Per comodità, utilizzeremo a volte la seguente notazione per indicare l'operazione di derivazione:
+$${\partial\over\partial x^i}h^{k}=h^k_{,i}$$
 \\
 Come fatto in precedenza, assumiamo che la metrica non sia distante da quella di Minkowski, ovvero che valga l'ipotesi:
 $$g_{ij}=\eta_{ij}+h_{ij}$$
 dove $\eta_{ij}$ è la metrica di Minkowski e $h_{ij}$ è una correzione tale che $|h_{ij}|<<1$. Prima di procedere con la linearizzazione del tensore di Einstein, è opportuno classificare un'importante classe di trasformazioni.\\
 \\
 Consideriamo un cambio di coordinate infinitesimo $x^{i'}=x^i+\xi^i(x^j)$ dove $\xi^i$ è una funzione della posizione, molto piccola: $|\xi^i|<<1$. Supponiamo anche che le derivate prime di $\xi^i$ siano molto piccole: $|{\partial\xi^i\over \partial x^m}|<<1$. E' possibile dimostrare che per una trasformazione di questo tipo vale:
-$$h$$ 
+$$h_{\alpha\beta}\rightarrow h_{\alpha\beta}-{\partial\xi_{\alpha}\over \partial x^\beta}-{\partial\xi_{\beta}\over \partial x^\alpha}=
+h_{\alpha\beta}-\xi_{\alpha,\beta}-\xi_{\beta,\alpha}$$ 
+Utilizzeremo questa trasformazione per ridurre il tensore di Riemann in una forma più sintetica. Prima di procedere con il calcolo, ci si posizionerà in un punto in modo da costruire un sistema di riferimento normale. In questo modo i coefficienti di Christoffel saranno nulli ed il tensore di Riemann avrà la forma:
+$$R_{jikl}={1\over 2}\bigg{[}{\partial^2 g_{ik} \over\partial x^j\partial x^l}-{\partial^2 g_{jk}\over\partial x^i\partial x^l}-{\partial^2 g_{il} \over\partial x^j\partial x^k}+{\partial^2 g_{jl}\over\partial x^i\partial x^k}\bigg{]}$$
+Inoltre, prima di utilizzare la relazione $h_{\alpha\beta}\rightarrow h_{\alpha\beta}-\xi_{\alpha,\beta}-\xi_{\beta,\alpha}$, facciamo la seguente osservazione: dato che la nostra metrica è composta da due termini, di cui uno costante, ovvero $\eta_{ij}$, per linearità dell'operazione di derivazione si scrive:
+$$R_{jikl}={1\over 2}\bigg{[}{\partial^2 h_{ik} \over\partial x^j\partial x^l}-{\partial^2 h_{jk}\over\partial x^i\partial x^l}-{\partial^2 h_{il} \over\partial x^j\partial x^k}+{\partial^2 h_{jl}\over\partial x^i\partial x^k}\bigg{]}$$
+L'idea è ora quella di contrarre il tensore di Riemann in modo da ottenere il tensore di Ricci $R_{ij}$ e lo scalare $R$, così da costruire $G_{ij}=R_{ij}-{1\over2}Rg_{ij}$ tensore di Einstein. Prima di enunciare l'espressione del tensore, chiamiamo $\bar{h}_{ij}=h_{ij}-{1\over 2}h$ che prende il nome di tensore "traccia inversa di h". Infatti, $\bar{h}=-h$.
+Si può mostrare che, contraendo il tensore di Riemann e sostituendo il tensore traccia inversa, il tensore di Einstein ha la forma:
+\begin{equation}
+	\label{Equation 3}
+	G_{ij}=-{1\over 2}\bigg[\bar{h}_{ij,\mu}^{\hspace{8pt},\mu}+\eta_{ij}\bar{h}_{\mu\nu}^{\hspace{8pt},\mu\nu}-\bar{h}_{i\mu,j}^{\hspace{8pt},\nu}-\bar{h}_{j\mu,i}^{\hspace{8pt},\mu}\bigg]+O((h_{ij})^2)
+\end{equation}
+
+\begin{Obs}
+	Notiamo che l'espressione \ref{Equation 3} si semplificherebbe se fosse verificato che $\bar{h}^{\mu\nu}_{,\nu}=0$. Cerchiamo allora una trasformazione del tipo $h_{\alpha\beta}\rightarrow h_{\alpha\beta}-\xi_{\alpha,\beta}-\xi_{\beta,\alpha}$ che renda vera questa richiesta.		
+\end{Obs}
+Partiamo con il mostrare che una trasformazione di questo tipo esiste: sia $h_{ij}^{new}=h_{ij}^{old}-\xi_{i,j}-\xi_{j,i}$. Allora, per definizione di tensore traccia inversa:
+$$\bar{h}_{ij}^{new}=h_{ij}^{new}-{1\over 2}\eta_{ij}h^{new}=h_{ij}^{old}-\xi_{i,j}-\xi_{j,i}-{1\over 2}\eta_{ij}(h^{old}-\xi_{i,j}-\xi_{j,i}-\xi_{\alpha,\alpha})$$
+$$=h_{ij}^{old}-{1\over 2}\eta_{ij}h^{old}-\xi_{i,j}-\xi_{j,i}+\eta_{ij}\xi_{,\alpha}^\alpha$$
+Ora deriviamo ed imponiamo che $\bar{h}^{\mu\nu(new)}_{,\nu}=0$:
+$\bar{h}^{\mu\nu(new)}_{,\nu}=0=h_{ij}^{old}-{1\over 2}\eta_{ij}h^{old}-\xi_{i,j}-\xi_{j,i}+\eta_{ij}\xi_{,\alpha}^\alpha$
 \end{document}
