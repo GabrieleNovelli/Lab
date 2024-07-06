@@ -1,0 +1,94 @@
+\documentclass[]{article}
+
+\usepackage[italian]{babel}
+\usepackage{newlfont}
+\usepackage{color}
+\usepackage{float}
+\usepackage{frontespizio}
+\usepackage{amsmath,amssymb}
+\usepackage{amsthm}
+\usepackage{geometry}
+\usepackage{tikz}
+\usepackage{biblatex}
+\usepackage{csquotes}
+\usepackage{pgfplots}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{comment}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+	pdftitle={Overleaf Example},
+	pdfpagemode=FullScreen,
+}
+
+\textwidth=450pt\oddsidemargin=0pt
+\geometry{a4paper, top=3cm, bottom=3cm, left=3cm, right=3cm, % heightrounded, bindingoffset=5mm 
+}
+\theoremstyle{definition}
+\newtheorem{Def}{Definizione}
+
+\theoremstyle{Theorem}
+\newtheorem{Theo}[Def]{Teorema}
+\newtheorem{Prop}[Def]{Proposizione}
+
+\newtheorem{Lm}[Def]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{Ex}[Def]{Esempio}
+
+\theoremstyle{definition}
+\newtheorem{Lem}[Def]{Lemma:}
+
+\theoremstyle{definition}
+\newtheorem{Obs}[Def]{Osservazione:}
+
+
+%opening
+\title{Schwarzschild Black Holes}
+\author{Novelli Gabriele}
+\date{ }
+
+\begin{document}
+
+\maketitle
+
+\section{The Schwarzschild Metric}
+In this section we will determine the Schwarzschild metric, which will be the starting point for our analysis on black holes.\\
+Consider a spherically simmetric source in the vacuum. Our aim in this section is to determine the metric outside of this source. To carry on the calulations, we need to solve Einstein equation, which in the vacuum takes the simple form:
+$$R_{\mu\nu}=0$$
+We also assume that the source is not evolving in time. This, toghether with the spherical symmetry, translates in the following requirements: 
+\begin{itemize}
+	\item static source $\rightarrow$ all of the metric components are independent of time and we have no space-time cross terms;
+	\item spherical symmetry $\rightarrow$ the metric takes the following general form:
+	$$ds^2=-e^{2\alpha(r)}dt^2+e^{2\beta(r)}dr^2+e^{2\gamma(r)}r^2d\Omega^2$$
+\end{itemize}
+The exponentials have been choosen so that the signature of the metric does not change. We now define the new coordinate $\bar{r}=e^{\gamma(r)}r$ which implies obviously that $$d\bar{r}=e^{\gamma(r)}[1+r{d\gamma\over dr}]dr$$
+Substituting this coordinate inside of the metric we get the expression:
+$$ds^2=-e^{2\alpha(\bar{r})}dt^2+e^{2\beta(\bar{r})-2\gamma(\bar{r})}\bigg(1+r{d\gamma\over dr}\bigg)^{-2}d\bar{r}^2+\bar{r}^2d\Omega^2$$
+Where the functions of $r$ have now become functions of $\bar{r}$, defined implicitly through the previous relation. Our next step is to define another variable:
+$$e^{2\bar{\beta}(\bar{r})}=e^{2\beta(\bar{r})-2\gamma(\bar{r})}\bigg(1+r{d\gamma\over dr}\bigg)^{-2}$$ 
+As for now we are just simply re-labelling our coordinates. Later we will worry about the physical interpretation of the coordinates we are using. With this substitution the metric takes the form:
+$$ds^2=-e^{2\alpha(\bar{r})}dt^2+e^{2\bar\beta(\bar{r})}d\bar{r}^2+\bar{r}^2d\Omega^2$$
+Now we can determine the general form of the Riemann tensor. In ordedr to achieve this we compute the Christoffel Symbols. Recall that for a metric connection $\Gamma_{\mu\nu}^\beta=\Gamma_{\nu\mu}^\beta$ we have the relation:
+$$\Gamma_{\mu\nu}^\beta={1\over 2}g^{\beta\alpha}(g_{\mu\alpha,\nu}+g_{\nu\alpha,\mu}-g_{\mu\nu,\alpha})$$
+Using as indices ${t,r,\sigma,\phi}$ (to simplify the notation we have renamed $\bar{r}$ to $r$), the calculations are greatly simplified bny the diagonal structure of our metric, so that the only non-zero symbols are the following:\\
+\begin{itemize}
+	\item $$\Gamma_{tr}^t={1\over 2}g^{t\alpha}(g_{t\alpha,r}+g_{r\alpha,t}-g_{tr,\alpha})={1\over 2}g^{tt}(g_{tt,r}+g_{rr,t}-0)=\partial_r\alpha(r)$$
+	\item $$\Gamma_{tt}^r={1\over 2}g^{r\alpha}(g_{t\alpha,t}+g_{t\alpha,t}-g_{tt,\alpha})={1\over 2}g^{rr}(0+0-g_{tt,r})=e^{2(\alpha(r)-\beta(r))}\partial_r\alpha(r)$$
+	\item $$\Gamma_{rr}^r={1\over 2}g^{r\alpha}(g_{r\alpha,r}+g_{r\alpha,r}-g_{rr,\alpha})={1\over 2}g^{rr}(g_{rr,r}+g_{rr,r}-g_{rr,r})=\partial_r\beta(r)$$
+	\item $$\Gamma_{r\theta}^\theta={1\over 2}g^{\theta\alpha}(g_{r\alpha,\theta}+g_{\theta\alpha,r}-g_{r\theta,\alpha})={1\over 2}g^{\theta\theta}(g_{r\theta,\theta}+g_{\theta\theta,r}-g_{r\theta,\theta})={1\over r}$$
+	\item $$\Gamma_{\theta\theta}^r={1\over 2}g^{r\alpha}(g_{\theta\alpha,\theta}+g_{\theta\alpha,\theta}-g_{\theta\theta,\alpha})={1\over 2}g^{rr}(g_{\theta r,\theta}+g_{\theta r,\theta}-g_{\theta\theta,r})=-e^{-2\beta(r)}r$$
+	\item $$\Gamma_{r\phi}^\phi={1\over 2}g^{\phi\alpha}(g_{r\alpha,\phi}+g_{\phi\alpha,r}-g_{r\phi,\alpha})={1\over 2}g^{\phi\phi}(g_{r\phi,\phi}+g_{\phi\phi,r}-g_{r\phi,\phi})={1\over r}$$
+	\item $$\Gamma_{\phi\phi}^r={1\over 2}g^{r\alpha}(g_{\phi\alpha,\phi}+g_{\phi\alpha,\phi}-g_{\phi\phi,\alpha})={1\over 2}g^{rr}(g_{\phi r,\phi}+g_{\phi r,\phi}-g_{\phi\phi,r})=-re^{-2\beta(r)}sin^2(\theta)$$
+	\item $$\Gamma_{\phi\phi}^\theta={1\over 2}g^{\theta\alpha}(g_{\phi\alpha,\phi}+g_{\phi\alpha,\phi}-g_{\phi\phi,\alpha})={1\over 2}g^{\theta\theta}(g_{\phi\theta,\phi}+g_{\phi\theta,\phi}-g_{\phi\phi,\theta})=-cos(\theta)sin(\theta)$$
+	\item $$\Gamma_{\theta\phi}^\phi={1\over 2}g^{\phi\alpha}(g_{\theta\alpha,\phi}+g_{\phi\alpha,\theta}-g_{\theta\phi,\alpha})={1\over 2}g^{\phi\alpha}(g_{\theta\phi,\phi}+g_{\phi\phi,\theta}-g_{\theta\phi,\phi})=ctan(\theta)$$
+\end{itemize}
+Now we can finally calculate the Riemann tensor by making use to the known relation 
+$$R^\rho_{\sigma\mu\nu}=\partial_\mu\Gamma^\rho_{\nu\sigma}-\partial_\nu\Gamma^\rho_{\mu\sigma}+\Gamma^\rho_{\mu\lambda}\Gamma^\lambda_{\nu\sigma}-\Gamma^\rho_{\nu\lambda}\Gamma^\lambda_{\mu\sigma}$$ 
+It is known that due to its properties this quantity has only 20 independent components.
+
+\end{document}
