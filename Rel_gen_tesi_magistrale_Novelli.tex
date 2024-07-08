@@ -75,7 +75,7 @@ As for now we are just simply re-labelling our coordinates. Later we will worry 
 $$ds^2=-e^{2\alpha(\bar{r})}dt^2+e^{2\bar\beta(\bar{r})}d\bar{r}^2+\bar{r}^2d\Omega^2$$
 Now we can determine the general form of the Riemann tensor. In ordedr to achieve this we compute the Christoffel Symbols. Recall that for a metric connection $\Gamma_{\mu\nu}^\beta=\Gamma_{\nu\mu}^\beta$ we have the relation:
 $$\Gamma_{\mu\nu}^\beta={1\over 2}g^{\beta\alpha}(g_{\mu\alpha,\nu}+g_{\nu\alpha,\mu}-g_{\mu\nu,\alpha})$$
-Using as indices ${t,r,\sigma,\phi}$ (to simplify the notation we have renamed $\bar{r}$ to $r$), the calculations are greatly simplified bny the diagonal structure of our metric, so that the only non-zero symbols are the following:\\
+Using as indices ${t,r,\sigma,\phi}$ (to simplify the notation we have renamed $\bar{r}$ to $r$ and $\bar{\beta}$ to $\beta$), the calculations are greatly simplified bny the diagonal structure of our metric, so that the only non-zero symbols are the following:\\
 \begin{itemize}
 	\item $$\Gamma_{tr}^t={1\over 2}g^{t\alpha}(g_{t\alpha,r}+g_{r\alpha,t}-g_{tr,\alpha})={1\over 2}g^{tt}(g_{tt,r}+g_{rr,t}-0)=\partial_r\alpha(r)$$
 	\item $$\Gamma_{tt}^r={1\over 2}g^{r\alpha}(g_{t\alpha,t}+g_{t\alpha,t}-g_{tt,\alpha})={1\over 2}g^{rr}(0+0-g_{tt,r})=e^{2(\alpha(r)-\beta(r))}\partial_r\alpha(r)$$
@@ -89,6 +89,47 @@ Using as indices ${t,r,\sigma,\phi}$ (to simplify the notation we have renamed $
 \end{itemize}
 Now we can finally calculate the Riemann tensor by making use to the known relation 
 $$R^\rho_{\sigma\mu\nu}=\partial_\mu\Gamma^\rho_{\nu\sigma}-\partial_\nu\Gamma^\rho_{\mu\sigma}+\Gamma^\rho_{\mu\lambda}\Gamma^\lambda_{\nu\sigma}-\Gamma^\rho_{\nu\lambda}\Gamma^\lambda_{\mu\sigma}$$ 
-It is known that due to its properties this quantity has only 20 independent components.
+The Riemann tensor satiefies the folloqing properties:
+\begin{itemize}
+	\item $$R_{ijkl}=R_{klij}$$
+	\item $$R_{ijkl}=-R_{ijlk}=-R_{jikl}$$
+	\item $$R_{ijkl}+R_{iklj}+R_{iljk}=0$$
+	\item $$R_{ijkl;m}+R_{ijm;kl}+R_{ijlm;k}=0$$
+\end{itemize}
+It is known that due to its properties this quantity has only 20 independent components. The non-vanishing components are the following:
+\begin{itemize}
+	\item 
+\end{itemize}
+Finally, the Ricci scalar takes thew following form:
+$$R=-2e^{-2\beta}\bigg[\partial_r^2\alpha+(\partial_r\alpha)+{2\over r}(\partial_r\alpha-\partial_r\beta)+{1\over r^2}(1-e^{2\beta})\bigg]$$
+All of the components of this tensor must vanish independently. Thus, we can set: $R_{tt}+R_{rr}=0$ which gives us:
+$${2\over r}\partial_r (\alpha-\beta)=0$$ 
+from which we get that $\alpha=-\beta$. Now setting $R_{\theta\theta}=0$ we obtain:
+$$e^2\alpha(2r\partial_r\alpha+1)=1$$
+This condition can be re-written by allplying the Leibniz rule in the opposite way.
+$$\partial_r(re^{2\alpha})=1\longrightarrow e^{2\alpha}=1-{C/r}$$
+where $C$ is a constant to determine. The calculations have come to an end: the only thing which is left to do is to find the correct value for the constant. With the previous knowledge, the metric takes the following form:
+$$ds^2=-\bigg(1-{C\over r}\bigg)dt^2+\bigg(1-{C\over r}\bigg)^{-1}dr^2+r^2d\Omega^2$$
+To correctly establish the value of $C$ we can look at the weak field limit. In general, it is known that the component $g_{tt}$ takes the form:
+$$g_{tt}=-1\bigg(1-2V\bigg)=-(1-{2GM\over r})$$
+In order to let our theory be compatible with the Newtonian limit we simply set $C=2GM$. This value will be of great importance in the description of the physical properties of a Black hole.
+\section{Singularities}
+In the previuos section we were able to fully charactierze the Schwarzschild metric, which takes the general form:
+$$ds^2=-\bigg(1-{2GM\over r}\bigg)dt^2+\bigg(1-{2GM\over r}\bigg)^{-1}dr^2+r^2d\Omega^2$$
+However, we see that we have some problems for certain specific values of the coordinates. In particular, when $r=0$ and $r=2GM$ the first two components of the metric diverge. However, we must recall that in general the "bad" behaviour of the metric might be related, in some points, to the choice of the coordinates. To better understand this, one should remember that the metric in a plane in spherical coordinates is ill defined for $r=0$, even though the point on the manifoild is regular. To understand if the problems that arise in our metric are related to the coordinates that we have used, or if they derive from the structure of the manifold, we can look at scalars. In particular, we check if in our problematic points the curvature becomes infinite. The curvature is measured through the Riemann tensor. However, we would like to study some scalars, which do not depend on the change of coordinates. The set of scalars which we can construct from the Riemann tensor is the following:
+$$R=g^{jk}R^i_{jik};\hspace{5pt}R_{ij}R^{ij};\hspace{5pt}R_{ijkl}R^{ijkl};\hspace{5pt}R_{ijkl}^{klhf}R_{hf}^{ij}$$ 
+If any of these scalars becomes infinite when evaluated in a certain point, we call that point singularity.
+$r=0$ is indeed a singularity since one can show that
+$$R_{ijkl}R^{ijkl}\propto {1\over r^6}$$
+The truly problematic point is $r=2GM$ since one could see that all of the previous scalars do not diverge if computed in $r=2GM$.\\
+\\
+Before continuing, it is worth noticing that our analysis supposes that the quantity $r=2GM$ is well outside the interior of the source. This is generally true for black holes, but does not hold for stars in general. In the case of the sun, this point is well below the surface. In those cases, our equation is simply wrong since we are not in vacuum anymore.
+\section{Geodesics}
+To calculate geodesics one could simply solve the geodesic equations $${d^2x^\mu\over d\lambda^2}=-\Gamma_{\alpha\beta}^\mu{dx^\alpha\over d\lambda}{dx^\beta\over d\lambda}$$
+which however result to be very complicated. Instead, one can make use of the many assumptions we made on our system. In particular, we supposed that our source was static and spherically symmetric. Those requirements translate into the existence of 4 Killing vectors: 3 for rotations and 1 for time translations. Each of those Killing vectors will lead to a conserved quantity. It is in fact true that, if $K^\mu$ is a Killing vector, then the quantity $$K^\mu u_\mu$$
+is constant. We also know that along the geodesic there's an additional conserved quantity, which we will call
+$$\epsilon=u_\mu u^\mu$$
+Which for massive particles is -1 and for massless particles is 0.\\
+\\
 
 \end{document}
