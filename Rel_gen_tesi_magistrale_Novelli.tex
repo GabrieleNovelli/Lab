@@ -131,5 +131,36 @@ is constant. We also know that along the geodesic there's an additional conserve
 $$\epsilon=u_\mu u^\mu$$
 Which for massive particles is -1 and for massless particles is 0.\\
 \\
-
+In analogy with classical mechanics, the presence of a symmetry under rotation implies the conservation of the modulus and the direction of the angular momentum. In terms of our differential geometry apparatus the conservation of the direction of angular momentum implies that the trajectory of a test particle will lie on a plane. Thus, we are allowed to choose this plane as out equatorial plane. This means rotating our coordinate system such that $\theta={\pi\over2}$.\\
+The conservation of the modulus of angular momentum instead is due to the killing vector $L^\mu=(\partial_\phi)^\mu=(0,0,0,1)$. Lowering the index we get:
+$$L_\mu=g_{\mu\nu}L^\nu=g_{\mu\phi}L^\phi=(0,0,0,r^2sin^2(\theta))=(0,0,0,r^2)$$
+where we have used the fact that $\sin({\pi\over2})=1$.
+Then, the conserved quantity is $$L_\mu u^\mu=r^2{d\phi\over d\lambda}=L$$
+As for the time-like Killing vector, it imoplies the conservation of energy: 
+$$K^\mu=(\partial_t)^\mu=(1,0,0,0)$$
+once again we lower the indices:
+$$K_\mu=g_{\mu\nu}K^\nu=g_{\mu t}K^t=-\bigg(1-{2GM\over r},0,0,0\bigg)$$
+We call Killing energy the conserved quantity:
+$$E=-K^\mu u_\mu=\bigg(1-{2GM\over r}\bigg){dt\over d\lambda}$$
+Our idea now is to find subsitute the results found into the expression of $\epsilon$ to obtain the last geodesic equation.
+$$\epsilon=g_{\mu\nu}u^\mu u^\nu=g_{tt}\bigg({dt\over d\lambda}\bigg)^2+g_{rr}\bigg({dr\over d\lambda}\bigg)^2+g_{\theta\theta}\bigg({d\theta\over d\lambda}\bigg)^2+g_{\phi\phi}\bigg({dt\over d\lambda}\bigg)^2$$
+However ${d\theta\over d\lambda}=0$ since the evolution of the system is bound to a plane. Substituting what we previously found we obtain:
+$$0=-E^2+\bigg({dr\over d\lambda}\bigg)^2+\bigg(1-{2GM\over r}\bigg)\bigg({L^2\over r^2}+\epsilon\bigg)$$
+\section{Black Holes}
+We begin our analysis by studying radial null trajectories. Those correspond to $ds^2=0$ and $\theta=0=\phi$ so that the metric takes the form:
+$$ds^2=0=-\bigg(1-{2GM\over r}\bigg)dt^2+\bigg(1-{2GM\over r}\bigg)^{-1}dr^2$$ 
+shich obviously implies that
+$${dt\over dr}=\pm \bigg(1-{2GM\over r}\bigg)^{-1}$$
+This result is the slope of the light cones on a space-time diagram in the $(t,r)$ coordinates. We can see that for $r\rightarrow+\infty$ the slope tend to be at $45°$ inclination, which is the same result of the flat Minkowsky space. This makes sense physically since, being infinitely far away from the source, we do not feel its gravitational pull. Instead, for $r\rightarrow 2GM^\pm$ we get ${dt\over dr}\rightarrow\pm\infty$. So it appears that in those coordinates the light cones close up when we approach the surface $r=2GM$. This means that a photon that approaches this very suirface never seems to actually get there (not in a finite time). In our next analysis, through changes of coordiantes, we will show that this inability to reach the horizon $2GM$ is only apparent. However, an observer infinitely far away would never be able to tell.
+\subsection{The Tortoise Coordinates}
+To better undesrstand if a photon can reach the horizon in a finite amount of proper time, we start by making the following substitution, called Tortoise coordinate:
+$$r^*=r+2GMln\bigg({r\over 2GM}-1\bigg)$$
+Note that this coordinate is ill defined for $r\leq2GM$ since the logarithm becomes complex after this limit.
+Obviously the differential is:
+$$r^*=dr\bigg(1+\bigg({r\over 2GM}-1\bigg)^{-1}\bigg)=\bigg(1-{2GM\over r}\bigg)^{-1}dr$$
+Substituting this into the metric we get:
+$$ds^2=\bigg(1-{2GM\over r}\bigg)(-dt^2+{dr^*}^2)+r^2d\Omega$$
+Now when evaluating null trajectories we find that the light cones do not close up anymore:
+$${dt\over {dr^*}}=\pm1$$
+However, we have basically pushed away the surface $r=2GM$. In fact we recover this surface only at $r^*\rightarrow -\infty$.
 \end{document}
