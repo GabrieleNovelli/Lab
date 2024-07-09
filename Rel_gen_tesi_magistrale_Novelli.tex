@@ -1,6 +1,6 @@
 \documentclass[]{article}
 
-\usepackage[italian]{babel}
+\usepackage[english]{babel}
 \usepackage{newlfont}
 \usepackage{color}
 \usepackage{float}
@@ -15,6 +15,7 @@
 \usepackage{hyperref}
 \usepackage{amssymb}
 \usepackage{comment}
+\usepackage{graphicx}
 
 \hypersetup{
 	colorlinks=true,
@@ -152,15 +153,74 @@ $$ds^2=0=-\bigg(1-{2GM\over r}\bigg)dt^2+\bigg(1-{2GM\over r}\bigg)^{-1}dr^2$$
 shich obviously implies that
 $${dt\over dr}=\pm \bigg(1-{2GM\over r}\bigg)^{-1}$$
 This result is the slope of the light cones on a space-time diagram in the $(t,r)$ coordinates. We can see that for $r\rightarrow+\infty$ the slope tend to be at $45°$ inclination, which is the same result of the flat Minkowsky space. This makes sense physically since, being infinitely far away from the source, we do not feel its gravitational pull. Instead, for $r\rightarrow 2GM^\pm$ we get ${dt\over dr}\rightarrow\pm\infty$. So it appears that in those coordinates the light cones close up when we approach the surface $r=2GM$. This means that a photon that approaches this very suirface never seems to actually get there (not in a finite time). In our next analysis, through changes of coordiantes, we will show that this inability to reach the horizon $2GM$ is only apparent. However, an observer infinitely far away would never be able to tell.
-\subsection{The Tortoise Coordinates}
+\subsection{The Tortoise coordinates}
 To better undesrstand if a photon can reach the horizon in a finite amount of proper time, we start by making the following substitution, called Tortoise coordinate:
 $$r^*=r+2GMln\bigg({r\over 2GM}-1\bigg)$$
 Note that this coordinate is ill defined for $r\leq2GM$ since the logarithm becomes complex after this limit.
 Obviously the differential is:
-$$r^*=dr\bigg(1+\bigg({r\over 2GM}-1\bigg)^{-1}\bigg)=\bigg(1-{2GM\over r}\bigg)^{-1}dr$$
+$$dr^*=dr\bigg(1+\bigg({r\over 2GM}-1\bigg)^{-1}\bigg)=\bigg(1-{2GM\over r}\bigg)^{-1}dr$$
 Substituting this into the metric we get:
 $$ds^2=\bigg(1-{2GM\over r}\bigg)(-dt^2+{dr^*}^2)+r^2d\Omega$$
 Now when evaluating null trajectories we find that the light cones do not close up anymore:
 $${dt\over {dr^*}}=\pm1$$
 However, we have basically pushed away the surface $r=2GM$. In fact we recover this surface only at $r^*\rightarrow -\infty$.
+\subsection{The Eddington-Finkelstein coordinates}
+We define some new coordinates which are naturally adapted to the null geodesics. In particular, define
+$$v=t+r^*;\hspace{5pt} u=t-r^*$$
+Obviously the differentials are:
+$$dv=dt+dr^*;\hspace{5pt} du=dt-dr^*$$
+We see that ${dv\over dr^*}={dt\over dr^*}+1$ and ${du\over dr^*}={dt\over dr^*}-1$ so that for outgoing null trajectories ${du\over dr^*}=0$ and for ingoing null trajectories ${dv\over dr^*}=0$. In this sense those coordinates are adapted to the null geodesics.\\
+Let un substitute one at a time those new variables and see how do they affect the metric: by substituting $v$ we get:
+$$ds^2=\bigg(1-{2GM\over r}\bigg)(-dv^2+2dvdr^*)+r^2d\Omega$$
+And substituting $r^*$ as a function of $r$ we find:
+$$ds^2=-\bigg(1-{2GM\over r}\bigg)dv^2+2dvdr+r^2d\Omega$$
+With this substitution we see that the only apparent feature of the metric is the vanishing of the time coefficient at the horizon $r=2GM$. However, everyrhing is regular at this surface.\\
+\\
+Let us now study radial null geodesics: 
+$$0=-\bigg(1-{2GM\over r}\bigg)dv^2+2dvdr$$
+this implies the following result:
+\\
+\begin{center}
+	\begin{math}
+		\displaystyle {dv\over dr}=
+		\begin{cases}
+			0 \mbox{\hspace{68pt}Ingoing}\\
+			2\bigg(1-{2GM\over r}\bigg)^{-1} \mbox{  Outgoing}
+		\end{cases}
+	\end{math}
+\end{center}
+Thus, the light cones have one axis which is alwasy parallel to the direction $v=constant$ with $r$ and the other which varies in relation to the horizon. Before looking at the actual precise behaviuor of the light cones, we see that there is no bad behaviour of the coordinates at the horizon. The apparent singularity was only suggested by the Schwarzschild coordinates.\\
+As for the light cones, we can see from Figure 1, they appear to tilt as we approach the singularity. In particular, at the horizon the outgoing light trajectory is perfectly vertical, while past it at $r<2GM$ it's even more tilted. This not only means that once passed the horizon, it is impossible for an object to exit it. Further more, every outgoing trajectory still points towards the singularity!\\
+\\
+\begin{center}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics{RelGenv.png}
+		\caption{Light cones in the Schwarzschild coordinates with Eddington-Finkelstein coordinate v.}
+	\end{figure}
+\end{center}
+We can easily repaeat the previous calculations for the other variable $u$. Everything is still the same, except for a minus sign in front of the factor $r^*$. Thus we find the following metric:
+$$ds^2=-\bigg(1-{2GM\over r}\bigg)du^2-2dudr+r^2d\Omega$$
+Now, looking again at null trajectories we get:
+$$0=-\bigg(1-{2GM\over r}\bigg)du^2-2dudr$$
+which in turn implies that:
+\begin{center}
+	\begin{math}
+		\displaystyle {du\over dr}=
+		\begin{cases}
+			0 \mbox{\hspace{68pt}Outgoing}\\
+			-2\bigg(1-{2GM\over r}\bigg)^{-1} \mbox{  Ingoing}
+		\end{cases}
+	\end{math}
+\end{center}
+Let us look at Figure 2. This time the light cones have the outgoing axis always pointing on the direction of $u$ constant. The ingoing axis instead tilts in relation to the horizon and at $r=2GM$ is perfectly parallel to the axis $u$. Past this surface instead, we see that this axis tilts even more. This means that every future directed trajectory is in the direction of increasing $r$.
+\begin{center}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics{RelGenu.png}
+		\caption{Light cones in the Schwarzschild coordinates with Eddington-Finkelstein coordinate u.}
+	\end{figure}
+\end{center}
+We then see that the first substitution describes a black hole since once we get past the horizon we are not able to go back. Furthermore, we are bound to move towards the singularity. The second substitution describes a white hole, since once passed (in an outgoing way) the horizon we cannot enter it again. To this we must add that when we are inside it we can only move away from the singularity.\\
+\\
 \end{document}
