@@ -223,4 +223,35 @@ Let us look at Figure 2. This time the light cones have the outgoing axis always
 \end{center}
 We then see that the first substitution describes a black hole since once we get past the horizon we are not able to go back. Furthermore, we are bound to move towards the singularity. The second substitution describes a white hole, since once passed (in an outgoing way) the horizon we cannot enter it again. To this we must add that when we are inside it we can only move away from the singularity.\\
 \\
+\subsection{The Kruskal coordinates }
+Our finale step is to define a set of coordinates which allow us to better understand the structure of the manifold. We begin by taking the previous coordinates $u,v$ defined as:
+$$v=t+r^*;\hspace{5pt} u=t-r^*$$ and substitute both of them into the metric: let us do this step by step. First of all, we substitute $r^*$ like we did in the previous sub-sectioins:
+$$ds^2=\bigg(1-{2GM\over r}\bigg)(-dt^2+{dr^*}^2)+r^2d\Omega$$
+Then, since $dv=dt+dr^*$ and $du=dt-dr^*$ we obviously get $-2dvdu=-dt^2+d{r^*}^2$ and so our metric becomes:
+$$ds^2=-\bigg(1-{2GM\over r}\bigg)(2dvdu)+r^2d\Omega$$
+The variable $r$ is defined implicitly through the previous definition of $r^*$ above. Now we define another pair of coordinates:
+$$v'=e^{v/4GM};\hspace{5pt} u'=e^{-u/4GM}$$
+The differentials are computed in the obvious way and we get: $$dv'=e^{v/4GM}{dv\over 4GM};\hspace{5pt} du'=-e^{-u/4GM}{du\over 4GM}$$
+From this it naively follows that:
+$$dvdu=-dv'du'(4GM)^2e^{u-v\over 4GM}$$
+However $$u-v=-2r^*=-2(r+2GMln({r\over 2GM}-1))$$
+which when exponentiated produces:
+$$e^{u-v\over 4GM}=e^{-{r\over 2GM}-ln({r\over 2GM}-1)}]=e^{-{r\over 2GM}}\bigg({r\over 2GM}-1\bigg)^{-1}$$
+Thus, we can write:
+$$dvdu=-dv'du'(4GM)^2e^{-{r\over 2GM}}\bigg({r\over 2GM}-1\bigg)$$
+With this substitution we can see that the first term of the metric loses the usual pre-factor:
+$$ds^2=-(4GM)^2e^{-{r\over 2GM}}\bigg({r\over 2GM}-1\bigg)^{-1}\bigg(1-{2GM\over r}\bigg)(2dv'du')+r^2d\Omega=-{32G^3M^3\over r}e^{-{r\over 2GM}}(2dv'du')+r^2d\Omega$$
+The last step is to define two new variables since the ones we have right now put a metric in a form from which we canno't deduce the signature in an easy way.
+Define:
+$$T={1\over 2}(v'+u')=\bigg({r\over 2GM}-1\bigg)^{1\over 2}e^{r\over 4GM}sinh\bigg({t\over 4GM}\bigg)$$ 
+$$R={1\over 2}(v'-u'))=\bigg({r\over 2GM}-1\bigg)^{1\over 2}e^{r\over 4GM}cosh\bigg({t\over 4GM}\bigg)$$
+With this definition it is clear that
+$$T^2-R^2=\bigg(1-{r\over 2GM}\bigg)e^{r\over 2GM}$$
+We define the Kruskal coordinates as the set $(T,R,\theta, \phi)$. In this new coordinate system we can see that the radial null curvers look exactly like they do in flat-minkowsky space:
+$$T=\pm R+const$$
+However, we also see that the horizon is not a forbidden point anymore, since $r=2GM$ corresponds to $T=\pm R$. In order to plot the structure of the manifold we need to understand how do the surfaces at constant $r,t$ look like. From the relation
+$$T^2-R^2=\bigg(1-{r\over 2GM}\bigg)e^{r\over 2GM}$$
+we see that the surfaces at constant $r$ are hyperbolae in the $T,R$ plane. As for the other kind of surfaces:
+$${T\over R}=tanh\bigg({t\over 4GM}\bigg)$$
+tells us that the surfaces at constatn $t$ are described by lines through the origin.
 \end{document}
