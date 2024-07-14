@@ -59,7 +59,7 @@
 
 \section{The Schwarzschild Metric}
 In this section we will determine the Schwarzschild metric, which will be the starting point for our analysis on black holes.\\
-Consider a spherically simmetric source in the vacuum. Our aim in this section is to determine the metric outside of this source. To carry on the calulations, we need to solve Einstein equation, which in the vacuum takes the simple form:
+Consider a spherically simmetric source in the vacuum. Our aim is to characterize the metric outside of this source. To carry on the calulations, we need to solve Einstein equation, which in the vacuum takes the simple form:
 $$R_{\mu\nu}=0$$
 We also assume that the source is not evolving in time. This, toghether with the spherical symmetry, translates in the following requirements: 
 \begin{itemize}
@@ -88,7 +88,7 @@ Using as indices ${t,r,\sigma,\phi}$ (to simplify the notation we have renamed $
 	\item $$\Gamma_{\phi\phi}^\theta={1\over 2}g^{\theta\alpha}(g_{\phi\alpha,\phi}+g_{\phi\alpha,\phi}-g_{\phi\phi,\alpha})={1\over 2}g^{\theta\theta}(g_{\phi\theta,\phi}+g_{\phi\theta,\phi}-g_{\phi\phi,\theta})=-cos(\theta)sin(\theta)$$
 	\item $$\Gamma_{\theta\phi}^\phi={1\over 2}g^{\phi\alpha}(g_{\theta\alpha,\phi}+g_{\phi\alpha,\theta}-g_{\theta\phi,\alpha})={1\over 2}g^{\phi\alpha}(g_{\theta\phi,\phi}+g_{\phi\phi,\theta}-g_{\theta\phi,\phi})=ctan(\theta)$$
 \end{itemize}
-Now we can finally calculate the Riemann tensor by making use to the known relation 
+Now we can finally calculate the Riemann tensor by making use of the known relation 
 $$R^\rho_{\sigma\mu\nu}=\partial_\mu\Gamma^\rho_{\nu\sigma}-\partial_\nu\Gamma^\rho_{\mu\sigma}+\Gamma^\rho_{\mu\lambda}\Gamma^\lambda_{\nu\sigma}-\Gamma^\rho_{\nu\lambda}\Gamma^\lambda_{\mu\sigma}$$ 
 The Riemann tensor satisfies the following properties:
 \begin{itemize}
@@ -245,14 +245,17 @@ $$e^{u-v\over 4GM}=e^{-{r\over 2GM}-ln({r\over 2GM}-1)}]=e^{-{r\over 2GM}}\bigg(
 Thus, we can write:
 $$dvdu=-dv'du'(4GM)^2e^{-{r\over 2GM}}\bigg({r\over 2GM}-1\bigg)$$
 With this substitution we can see that the metric loses part of its usual diagonal terms:
-$$ds^2=-(4GM)^2e^{-{r\over 2GM}}\bigg({r\over 2GM}-1\bigg)^{-1}\bigg(1-{2GM\over r}\bigg)(2dv'du')+r^2d\Omega=-{32G^3M^3\over r}e^{-{r\over 2GM}}(2dv'du')+r^2d\Omega$$
+$$ds^2=-(4GM)^2e^{-{r\over 2GM}}\bigg({r\over 2GM}-1\bigg)^{-1}\bigg(1-{2GM\over r}\bigg)(2dv'du')+r^2d\Omega=$$
+$$ds^2=-{32G^3M^3\over r}e^{-{r\over 2GM}}(2dv'du')+r^2d\Omega$$
 The last step is to define two new variables since the ones we have right now put a metric in a form from which we cannot deduce the signature in an easy way.
 Define:
 $$T={1\over 2}(v'+u')=\bigg({r\over 2GM}-1\bigg)^{1\over 2}e^{r\over 4GM}sinh\bigg({t\over 4GM}\bigg)$$ 
 $$R={1\over 2}(v'-u'))=\bigg({r\over 2GM}-1\bigg)^{1\over 2}e^{r\over 4GM}cosh\bigg({t\over 4GM}\bigg)$$
 With this definition it is clear that
 $$T^2-R^2=\bigg(1-{r\over 2GM}\bigg)e^{r\over 2GM}$$
-We define the Kruskal coordinates as the set $(T,R,\theta, \phi)$. In this new coordinate system we can see that the radial null curvers look exactly like they do in flat-minkowsky space:
+We define the Kruskal coordinates as the set $(T,R,\theta, \phi)$. In this new coordinate system yhe metric takes the form:
+$$ds^2={32G^3M^3\over r}e^{-r/2GM}(-dT^2+dR^2)+r^2d\Omega^2$$ 
+it is not hard to deduce that the radial null curvers look exactly like they do in flat-minkowsky space:
 $$T=\pm R+const$$
 In addition to this, we also see that the horizon is not a forbidden point anymore, since $r=2GM$ corresponds to $T=\pm R$. In order to plot the structure of the manifold we need to understand how do the surfaces at constant $r,t$ look like. From the relation
 $$T^2-R^2=\bigg(1-{r\over 2GM}\bigg)e^{r\over 2GM}$$
